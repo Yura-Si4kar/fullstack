@@ -1,0 +1,166 @@
+// MenuListItem
+.menu__item-container {
+  width: 25%;
+  padding: 10px;
+  display: flex;
+  align-items: stretch;
+
+  @each $breakpoint, $width in $root-width {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      width: $width;
+    }
+  }
+}
+
+.menu__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 10px 10px;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.menu__item img {
+  border-radius: 15px;
+  max-width: 100%;
+}
+
+.menu__item-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu__item-price {
+  font-size: 13px;
+  white-space: nowrap;
+
+  @media (min-width: 375px) {
+    font-size: 14px !important;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 16px !important;
+  }
+}
+
+.menu__item-rating {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  & .MuiRating-decimal {
+    font-size: 15px !important;
+    
+    @media (min-width: 375px) {
+      font-size: 17px !important;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 20px !important;
+    }
+  }
+
+  & .MuiRating-decimal:hover {
+    font-size: 18px !important;
+
+    @media (min-width: 375px) {
+      font-size: 21px !important;
+    }
+
+    @media (min-width: 375px) {
+      font-size: 23px !important;
+    }
+  }
+}
+
+.menu__item-number {
+  font-size: 13px;
+
+  @media (min-width: 375px) {
+    font-size: 15px !important;
+  }
+}
+
+.menu__item-block {
+  margin-bottom: 20px;
+}
+
+.menu__item-badge {
+  left: 20px;
+}
+
+.menu__item-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+// Order Item
+
+.order__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap !important;
+  padding: 0 10px;
+}
+
+.order__item-buttons {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
+}
+
+.order__item-button {
+  border: 1px solid var(--order-btn) !important;
+  border-radius: 4px !important;
+}
+
+// Personnel Item
+
+.personnel__item {
+  position: relative;
+
+  &-delete {
+    position: absolute !important;
+    top: 0;
+    right: -10px;
+    color: var(--blue);
+    font-size: 24px !important;
+    padding: 0 !important;
+  }
+
+  &-action {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+  }
+}
+
+// Table Item
+.table__item {
+  position: relative;
+
+  &-delete {
+    position: absolute !important;
+    top: 0;
+    right: -10px;
+    color: var(--blue);
+    font-size: 24px !important;
+    padding: 0 !important;
+  }
+
+  &-action {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+  }
+}

@@ -1,0 +1,50 @@
+:root {
+  --main: #121212;
+  --red: #ff0000;
+  --blue: #0000ff;
+  --white: #fff;
+  --black: #000000;
+  --order-btn: rgba(144, 202, 249, 0.5);
+  --dashed-line: rgb(212, 212, 212);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; /* 1 - вертикальний скроллбар */
+}
+::-webkit-scrollbar-button {
+  background: transparent; /* 2 - кнопка */
+}
+::-webkit-scrollbar-track {
+  background: transparent; /* 3 - трек */
+}
+::-webkit-scrollbar-track-piece {
+  background: transparent; /* 4 – видима частина трека */
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px var(--main); /* 5 - повзунок */
+}
+
+$breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px,
+);
+
+$root-width: (
+  xs: 100%,
+  sm: 50%,
+  md: 33.33%,
+  lg: 25%,
+);
+
+$grid-item-spacing: (
+  xs: 5,
+  sm: 4,
+  md: 4,
+  lg: 4,
+);
