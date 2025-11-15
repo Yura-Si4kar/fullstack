@@ -218,27 +218,6 @@ export const tieOrder = (order) => (dispatch, getState) => {
     });
 };
 
-export const clearTableOrders = (id, order) => (dispatch, getState) => {
-  const { tables } = getState();
-  const rightTable = tables.find((item) => item._id === id);
-  let newItem = { ...rightTable, order };
-  dispatch(setLoading(true));
-  setOrdersListToTable(id, newItem)
-    .then(() => {
-      dispatch(clearOrderListFromTheTable(id));
-      dispatch(setError(false));
-      dispatch(setErrorBody({}));
-    })
-    .catch((error) => {
-      console.error(error);
-      dispatch(setError(true));
-      dispatch(setErrorBody(error));
-    })
-    .finally(() => {
-      dispatch(setLoading(false));
-    });
-};
-
 export const saveSalesDate = (obj) => (dispatch, getState) => {
   dispatch(setLoading(true));
   addSalesData(obj)

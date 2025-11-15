@@ -1,0 +1,56 @@
+{
+  "auth": {
+    "login":"Authorization",
+    "registration":"Registration",
+    "placeholder": {
+      "email": "Enter your email",
+      "password": "Enter your password",
+      "repassword": "Repeate your password",
+      "label": "Select User"
+    },
+    "button": {
+      "login": "Sign in",
+      "register": "Registration"
+    },
+    "isLogin": {
+      "false": "Don't have an account?",
+      "true": "Already have an account?"
+    },
+    "link": {
+      "register": "Sign Up",
+      "login":"Sign in"
+    },
+    "errors": {
+      "fetch": "Error loading users:",
+      "password": "Please enter your password!",
+      "authorization": "Authorization error:",
+      "login": "Error during login:"
+    }
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "users": "Users Management",
+    "roles": "Roles & Permissions",
+    "clients": "Clients",
+    "deals": "Deals",
+    "tasks": "Tasks",
+    "messages": "Messages",
+    "files": "Files",
+    "settings": "System Settings",
+    "logs": "Logs / Audit"
+  },
+  "sidebar": {
+    "logoAlt": "Logo",
+    "support": "Support",
+    "illustrationAlt": "Illustration",
+    "supportIconAlt": "Support icon",
+    "buttons": {
+      "support": "Support",
+      "logout": "Logout"
+    }
+  },
+  "home": {
+    "title": "Welcome",
+    "description": "This is the English version."
+  }
+}

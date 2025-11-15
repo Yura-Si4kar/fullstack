@@ -1,0 +1,13 @@
+// style.scss
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'reset' as *;
+@use 'main' as *;
+// Pages
+@use 'pages/auth-page' as *;
+// Components
+@use 'components/sidebar' as *;
+@use 'components/header' as *;
+@use 'components/search' as *;
+// UI
+@use 'ui/dark-mode-btn' as *;
