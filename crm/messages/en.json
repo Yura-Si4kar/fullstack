@@ -52,5 +52,92 @@
   "home": {
     "title": "Welcome",
     "description": "This is the English version."
+  },
+  "users": {
+    "userManagement": "User Management",
+    "addUser": "Add user",
+    "editUser": "Edit user",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status",
+    "actions": "Actions",
+    "edit": "Edit",
+    "modal": {
+      "addTitle": "Add New User",
+      "editTitle": "Edit User",
+      "placeholder": {
+        "name": "Enter name",
+        "email": "Enter email",
+        "password": "Enter password",
+        "role": "Select role",
+        "status": "Select status"
+      },
+      "roles": {
+        "superadmin": "Superadmin",
+        "manager": "Manager",
+        "supervisor": "Supervisor",
+        "support": "Support",
+        "client": "Client"
+      },
+      "buttons": {
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "alert": "Please fill in all fields."
+    },
+    "users-actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "roles": {
+    "roleManagement": "Roles & Permissions Management",
+    "addRole": "Add role",
+    "editRole": "Edit role",
+    "roleName": "Role Name",
+    "groups": {
+      "users": "Users",
+      "roles": "Roles",
+      "dashboard": "Dashboard"
+    },
+    "permissions": {
+      "users": {
+        "view": "View users",
+        "create": "Create users",
+        "edit": "Edit users",
+        "delete": "Delete users"
+      },
+      "roles": {
+        "view": "View roles",
+        "create": "Create roles",
+        "edit": "Edit roles",
+        "delete": "Delete roles"
+      },
+      "dashboard": {
+        "view": "View dashboard"
+      }
+    },
+    "modal": {
+      "addTitle": "Add new role",
+      "editTitle": "Edit role",
+      "placeholder": {
+        "roleName": "Enter role name",
+        "permissions": "Select permissions"
+      },
+      "alert": "Please fill in all fields.",
+      "buttons": {
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    },
+    "buttons": {
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "roles-actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    }
   }
 }

@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { loginUser } from '@/store/thunks/authThunks';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuth } from '@/store/selectors/selectors';
+import { setUsersList } from '@/store/slices/usersSlice';
 
 export default function AuthPage({ locale, initialUsers }) {
   const auth = useSelector(selectIsAuth);
@@ -20,6 +21,12 @@ export default function AuthPage({ locale, initialUsers }) {
   const [selectedUser, setSelectedUser] = useState('');
   const [error, setError] = useState('');
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if (initialUsers.length) {
+      dispatch(setUsersList(initialUsers)); // <-- гідратація
+    }
+  }, [initialUsers, dispatch]);
 
   useEffect(() => {
     if (auth) {
@@ -39,8 +46,6 @@ export default function AuthPage({ locale, initialUsers }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('Locale:', locale);
-
     if (!user?.email || !password) {
       setError(t('errors.password'));
       return;
@@ -48,6 +53,7 @@ export default function AuthPage({ locale, initialUsers }) {
 
     try {
       const resultAction = await dispatch(loginUser({ email: user.email, password }));
+      
       if (loginUser.fulfilled.match(resultAction)) {
         router.replace(`/${locale}`);
       } else {

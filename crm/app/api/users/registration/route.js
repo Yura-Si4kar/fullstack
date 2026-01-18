@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-import models from "@/models/User";
+import { User } from "@/models/User";
 import connectDB from "@/libs/db";
 import bcrypt from "bcrypt";
-const { User } = models;
-import { generateToken } from "@/libs/jwt";
 
 export async function POST(request) {
     const { name, email, password, role, avatar } = await request.json();
@@ -18,8 +16,7 @@ export async function POST(request) {
     let existingUser;
     
     try {
-        existingUser = await User.findOne({ email });
-        console.log("Пошук користувача з email:", email, "Результат:", existingUser ? "Знайдено" : "Не знайдено"); // Лог для дебагу
+        existingUser = await User.findOne({ email }); 
     } catch (error) {
         console.error("Помилка пошуку користувача:", error);
         return NextResponse.json({ error: "Помилка перевірки email" }, { status: 500 });
@@ -37,15 +34,11 @@ export async function POST(request) {
     const user = new User({ name, email, password: hashedPassword, role, avatar });
     await user.save();
 
-    const token = generateToken({ id: user._id, name: user.name, email: user.email, role: user.role, avatar: user.avatar });
-    // Відправка відповіді з токеном у cookie
-    const response = NextResponse.json({ message: "Успішна реєстрація", isAuth: true, user: { id: user._id, name: user.name, email: user.email, role: user.role, avatar: user.avatar } }, { status: 201 });
-    response.cookies.set("token", token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        maxAge: 60 * 60 * 24, // 1 день
-        path: "/",
-    });
-
-    return response;
+  return NextResponse.json(
+    {
+      message: "Користувача створено успішно",
+      user: { _id: user._id, name: user.name, email: user.email, role: user.role, avatar: user.avatar }
+    },
+    { status: 201 }
+  );
 }

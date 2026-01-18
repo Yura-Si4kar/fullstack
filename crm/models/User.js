@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
@@ -17,6 +18,7 @@ const userSchema = new Schema({
         default: 'client'
     },
     avatar: { type: String },
+    lastActive: { type: Date, default: Date.now }
 }
 , { timestamps: true });
 
@@ -29,9 +31,8 @@ const usersActivity = new Schema({
 }
 , { timestamps: true });
 
-mongoose.models.User ||
-    mongoose.model('User', userSchema);
-mongoose.models.Activity ||
-    mongoose.model('Activity', usersActivity);
-
-export default mongoose.models;
+export const User =
+    mongoose.models.User || mongoose.model("User", userSchema);
+  
+export const Activity =
+    mongoose.models.Activity || mongoose.model("Activity", usersActivity);

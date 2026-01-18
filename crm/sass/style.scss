@@ -5,9 +5,16 @@
 @use 'main' as *;
 // Pages
 @use 'pages/auth-page' as *;
+@use 'pages/users-page' as *;
+@use 'pages/roles-page' as *;
 // Components
 @use 'components/sidebar' as *;
 @use 'components/header' as *;
 @use 'components/search' as *;
+@use 'components/loading' as *;
+// Popup
+@use 'popup/add-user' as *;
+@use 'popup/users-actions' as *;
+@use 'popup/add-role' as *;
 // UI
 @use 'ui/dark-mode-btn' as *;

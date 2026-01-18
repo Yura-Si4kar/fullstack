@@ -20,14 +20,7 @@ export default function Header() {
   }, [pathname]);
 
   const switchLocale = (locale, e) => {
-    // Миттєво оновлюємо локальний стан — стилі зміняться одразу!
-    setCurrentLocale(locale);
-
-    // Потім змінюємо URL
-    const segments = pathname.split('/');
-    segments[1] = locale;
-    const newPath = segments.join('/');
-
+    const newPath = `/${locale}${pathname.slice(3)}`;
     router.push(newPath);
   };
 

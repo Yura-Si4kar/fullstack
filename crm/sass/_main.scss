@@ -1,41 +1,29 @@
 html, body {
-  height: 100%; // цього достатньо
-  overflow: visible; // дозволяє локальний скролл
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
-  
+
 .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    // height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .image-responsive {
-    height: auto;
-    max-width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 .error {
-    color: var(--red);
-    display: block;
+  color: var(--red);
 }
 
-// .visually-hidden {
-//     border: 0;
-//     clip: rect(0 0 0 0);
-//     height: 1px;
-//     margin: -1px;
-//     overflow: hidden;
-//     padding: 0;
-//     position: absolute;
-//     width: 1px;
-// }
-
 .hide {
-    display: none;
+  display: none;
 }

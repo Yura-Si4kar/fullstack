@@ -1,5 +1,5 @@
-import { setRequestLocale, getTranslations } from 'next-intl/server';
 import React from 'react';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 
 export default async function HomePage({ params }) {
   const { locale } = await params;

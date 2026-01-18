@@ -1,0 +1,28 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full page height */
+    width: 100vw; /* Full page width */
+    position: fixed; /* Overlay the entire page */
+    top: 0;
+    left: 0;
+    background-color: var(--transparent-bg); /* Semi-transparent background */
+    z-index: 9999; /* Ensure it's on top */
+}
+
+.spinner {
+    border: 4px solid var(--spinner);
+    border-left-color: #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

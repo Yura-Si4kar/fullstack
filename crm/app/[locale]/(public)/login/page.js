@@ -1,6 +1,6 @@
 import React from 'react';
-import { usersList } from '@/http/auth';
 import AuthPage from './AuthPage';
+import { usersList } from '@/http/users';
 
 export default async function Page(props) {
   const { locale } = await props.params;

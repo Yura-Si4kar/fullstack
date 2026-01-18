@@ -1,46 +1,32 @@
 "use client";
+import { setThemeSchemeToCookie } from "@/http/theme";
 import React, { useEffect, useState } from "react";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
-import detectDarkMode from "@/utils/detectDarkMode";
 
 export default function DarkModeBtn() {
-  const btnNormal = "dark-mode-btn";
-  const btnActive = "dark-mode-btn dark-mode-btn--active";
-  const systemTheme = detectDarkMode();
-  const [darkMode, setDarkMode] = useLocalStorage('darkMode', systemTheme);
-  const [isClient, setIsClient] = useState(false);
+  const [theme, setTheme] = useState(null); // <- важливо!
 
   useEffect(() => {
-    setIsClient(true);
+    // Читаємо клас теми з DOM
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
   }, []);
 
-  useEffect(() => {
-    if (darkMode === "dark") {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode]);
+  const toggle = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
 
-  useEffect(() => {
-    const listener = (e) => {
-      const newColorScheme = e.matches ? "dark" : "light";
-      setDarkMode(newColorScheme);
-    };
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", listener);
-    return () =>
-      window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", listener);
-  }, [setDarkMode]);
-
-  const toggleDarkMode = (e) => {
-    e.preventDefault();
-    setDarkMode((curr) => (curr === "light" ? "dark" : "light"));
+    // відправляємо на сервер для збереження
+    setThemeSchemeToCookie(newTheme);
   };
 
-  if (!isClient) return null; // <– не рендеримо на сервері
+  if (theme === null) return null; // <- кнопка не рендериться поки тема невідома
 
   return (
-    <button className={darkMode === "dark" ? btnActive : btnNormal} onClick={toggleDarkMode}>
+    <button
+      onClick={toggle}
+      className={theme === "dark" ? "dark-mode-btn dark-mode-btn--active" : "dark-mode-btn"}
+    >
       <img
         src={`${process.env.NEXT_PUBLIC_MY_API_URL}/svg/sun.svg`}
         alt="Light mode"

@@ -1,0 +1,55 @@
+.users {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background-color: var(--bg-primary);
+    margin-top: 20px;
+    border-radius: 10px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    &__add-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    &__table-header {
+        background-color: var(--bg-secondary);
+    }
+    
+    &__table-row {
+        text-align: center;
+
+        & th {
+            padding: 15px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+    }
+    
+    &__table-body td {
+        padding: 10px;
+        text-align: center;
+        color: var(--text-primary);
+    }
+    
+    &__edit-button {
+        position: relative;
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}

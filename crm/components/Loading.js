@@ -1,11 +1,14 @@
-import React from 'react';
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
+'use client';
 
-export default function Loading() {
+import React from 'react';
+
+const Loading = () => {
   return (
-    <Backdrop className="loading-backdrop" open={true}>
-      <CircularProgress color="inherit" />
-    </Backdrop>
+    <div className="loading-container">
+      <div className="spinner"></div>
+      <p>Loading...</p>
+    </div>
   );
-}
+};
+
+export default Loading;
