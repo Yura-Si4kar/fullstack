@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import MyInput from '../UI/MyInput/MyInput';
+import MyInput from '../UI/MyInputs/MyInput';
 
 export function SearchBar() {
   const [searching, setSearching] = useState(false);

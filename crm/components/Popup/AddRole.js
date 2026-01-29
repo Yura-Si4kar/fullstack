@@ -2,7 +2,7 @@
 import { Box } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslations } from 'use-intl';
-import MyInput from '../UI/MyInput/MyInput';
+import MyInput from '../UI/MyInputs/MyInput';
 import MyButton from '../UI/MyButton/MyButton';
 import { useDispatch } from 'react-redux';
 import { addRoleThunk } from '@/store/thunks/rolesThunks';

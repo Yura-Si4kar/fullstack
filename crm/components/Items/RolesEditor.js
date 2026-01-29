@@ -1,11 +1,12 @@
 import { PERMISSION_GROUPS } from '@/config/permitions.config';
 import { useTranslations } from 'next-intl';
-import React from 'react';
-import MyInput from '../UI/MyInput/MyInput';
+import React, { useState } from 'react';
+import MyInputCheckBox from '../UI/MyInputs/MyInputCheckBox';
 import MyButton from '../UI/MyButton/MyButton';
 
-export default function RoleEditor({ role, onChange }) {
+export default function RoleEditor({ role, onChange, handleClick }) {
   const t = useTranslations('roles');
+  const [readOnly, setReadOnly] = useState(true);
 
   const togglePermission = (perm) => {
     const updated = role.permissions.includes(perm)
@@ -20,7 +21,16 @@ export default function RoleEditor({ role, onChange }) {
       <h2 className="roles__editor-title">{t('editRole')}</h2>
       <div className="roles__field">
         <label>{t('roleName')}</label>
-        <MyInput type="text" value={role.name} disabled />
+        <MyInputCheckBox
+          type="text"
+          value={role.name}
+          readOnly={readOnly}
+          onClick={() => setReadOnly(false)}
+          onBlur={() => setReadOnly(true)}
+          onChange={(e) =>
+            onChange({ ...role, name: e.target.value })
+          }
+        />
       </div>
       <div className="roles__permissions">
         {PERMISSION_GROUPS.map(group => (
@@ -28,7 +38,7 @@ export default function RoleEditor({ role, onChange }) {
             <h3>{t(group.labelKey)}</h3>
             {group.permissions.map(p => (
               <label key={p.key} className="roles__checkbox">
-                <MyInput
+                <MyInputCheckBox
                   type="checkbox"
                   checked={role.permissions.includes(p.key)}
                   onChange={() => togglePermission(p.key)} 
@@ -38,7 +48,7 @@ export default function RoleEditor({ role, onChange }) {
           </div>))}
       </div>
       <div className="roles__actions">
-        <MyButton className="roles__save-btn"> {t('buttons.save')} </MyButton>
+        <MyButton className="roles__save-btn" onClick={() => handleClick(role)}> {t('buttons.save')} </MyButton>
       </div>
     </div>);
 }

@@ -8,5 +8,12 @@ export const getRolesList = async () => {
 
 export const addRole = async (roleData) => {
     const { data } = await $host.post('/api/roles', roleData, { withCredentials: true });
+
+    return data;
+}
+
+export const updateRole = async (roleData) => {
+    const { data } = await $host.put(`/api/roles`, roleData, { withCredentials: true });
+    
     return data;
 }

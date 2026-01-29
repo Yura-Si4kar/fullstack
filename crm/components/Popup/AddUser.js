@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import MyInput from '../UI/MyInput/MyInput';
+import MyInput from '../UI/MyInputs/MyInput';
 import MyButton from '../UI/MyButton/MyButton';
 import { Box } from '@mui/material';
 import { useTranslations } from 'next-intl';

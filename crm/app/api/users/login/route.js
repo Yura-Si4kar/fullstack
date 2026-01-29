@@ -27,8 +27,6 @@ export async function POST(request) {
     user: { _id: user._id, name: user.name, email: user.email, role: user.role, avatar: user.avatar }
   });
 
-  console.log("Generated Token:", token); // Логування токена для налагодження
-
   response.cookies.set("token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

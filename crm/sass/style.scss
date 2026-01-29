@@ -7,6 +7,13 @@
 @use 'pages/auth-page' as *;
 @use 'pages/users-page' as *;
 @use 'pages/roles-page' as *;
+@use 'pages/clients-page' as *;
+@use 'pages/deals-page' as *;
+@use 'pages/tasks-page' as *;
+@use 'pages/messages-page' as *;
+@use 'pages/files-page' as *;
+@use 'pages/settings-page' as *;
+@use 'pages/dashboard-page' as *;
 // Components
 @use 'components/sidebar' as *;
 @use 'components/header' as *;
@@ -16,5 +23,6 @@
 @use 'popup/add-user' as *;
 @use 'popup/users-actions' as *;
 @use 'popup/add-role' as *;
+@use 'popup/support' as *;
 // UI
 @use 'ui/dark-mode-btn' as *;

@@ -1,0 +1,217 @@
+.messages {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+
+  /* SIDEBAR */
+  &__sidebar {
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+    background-color: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h2 {
+      font-size: 18px;
+    }
+  }
+
+  &__new {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--text-inverse);
+    border: none;
+    cursor: pointer;
+  }
+
+  &__search {
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-tertiary);
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+  }
+
+  /* CHAT LIST ITEM */
+  .chat {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+
+    &:hover {
+      background-color: var(--bg-tertiary);
+    }
+
+    &--active {
+      background-color: var(--bg-tertiary);
+    }
+
+    &--unread h4 {
+      font-weight: 600;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    &__content {
+      overflow: hidden;
+
+      h4 {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      p {
+        font-size: 13px;
+        color: var(--text-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &__time {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    &__badge {
+      background-color: var(--color-primary);
+      color: var(--text-inverse);
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 999px;
+    }
+  }
+
+  /* CHAT WINDOW */
+  &__chat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__chat-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-secondary);
+  }
+
+  .chat-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+
+    span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  }
+
+  .chat-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  &__body {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    background-color: var(--bg-primary);
+  }
+
+  /* MESSAGE */
+  .message {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: var(--radius-lg);
+    font-size: 14px;
+    line-height: 1.4;
+
+    span {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    &--incoming {
+      align-self: flex-start;
+      background-color: var(--bg-tertiary);
+    }
+
+    &--outgoing {
+      align-self: flex-end;
+      background-color: var(--color-primary);
+      color: var(--text-inverse);
+    }
+  }
+
+  /* INPUT */
+  &__input {
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+
+    input {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    button {
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      border: none;
+      background-color: var(--color-primary);
+      color: var(--text-inverse);
+      cursor: pointer;
+    }
+  }
+}

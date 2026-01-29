@@ -1,0 +1,133 @@
+.dashboard {
+  padding: 24px;
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+}
+
+/* HEADER */
+.dashboard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h1 {
+    font-size: 26px;
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+}
+
+.dashboard__actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* STATS */
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  span {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  strong {
+    font-size: 26px;
+  }
+
+  em {
+    font-style: normal;
+    font-size: 12px;
+
+    &.up {
+      color: var(--color-success);
+    }
+
+    &.down {
+      color: var(--color-danger);
+    }
+
+    &.warn {
+      color: var(--color-warning);
+    }
+  }
+}
+
+/* GRID */
+.dashboard__grid {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+
+  h3 {
+    margin-bottom: 14px;
+    font-size: 16px;
+  }
+}
+
+/* ACTIVITY */
+.activity ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-secondary);
+
+    time {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+  }
+}
+
+/* TASKS */
+.tasks .task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+
+  input {
+    accent-color: var(--color-primary);
+  }
+}
+
+/* SUPPORT */
+.support p {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}

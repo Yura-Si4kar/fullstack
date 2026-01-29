@@ -26,7 +26,6 @@ export async function POST(request) {
     const { name, permissions = [], description = "" } = await request.json();
 
     await connectDB();
-    console.log("Підключення до БД успішне", Role);
 
     const existingRole = await Role.findOne({ name });
     if (existingRole) {
@@ -53,6 +52,43 @@ export async function POST(request) {
     console.error("POST /roles error:", error);
     return NextResponse.json(
       { error: "Помилка створення ролі" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PUT(request) {
+  try {
+    const { _id, name, permissions, description } = await request.json();
+
+    await connectDB();
+
+    console.log("Updating role with ID:", _id);
+    const role = await Role.findByIdAndUpdate(
+      _id,
+      { name, permissions, description },
+      { new: true }
+    );
+
+    if (!role) {
+      return NextResponse.json(
+        { error: "Роль не знайдена" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(
+      {
+        message: "Роль оновлена успішно",
+        role,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("PUT /roles error:", error);
+
+    return NextResponse.json(
+      { error: "Помилка оновлення ролі" },
       { status: 500 }
     );
   }

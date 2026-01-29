@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import MyInput from '@/components/UI/MyInput/MyInput';
+import MyInput from '@/components/UI/MyInputs/MyInput';
 import MyButton from '@/components/UI/MyButton/MyButton';
 import { Typography, Box, Container, TextField, MenuItem } from '@mui/material';
 import { useRouter } from 'next/navigation';
@@ -10,6 +10,7 @@ import { loginUser } from '@/store/thunks/authThunks';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuth } from '@/store/selectors/selectors';
 import { setUsersList } from '@/store/slices/usersSlice';
+import { heartbeat } from '@/http/users';
 
 export default function AuthPage({ locale, initialUsers }) {
   const auth = useSelector(selectIsAuth);
