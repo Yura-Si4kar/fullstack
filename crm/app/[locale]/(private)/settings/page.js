@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react'
 
 export default function page() {
@@ -33,7 +35,7 @@ export default function page() {
           <div className="settings__card">
             <label>
               Application name
-              <input type="text" value="My CRM" />
+              <input type="text" value="My CRM" onChange={() => {}}/>
             </label>
 
             <label>
@@ -64,7 +66,7 @@ export default function page() {
                 <strong>Two-factor authentication</strong>
                 <span>Require 2FA for all users</span>
               </div>
-              <input type="checkbox" checked />
+              <input type="checkbox" defaultChecked />
             </div>
 
             <div className="switch">
