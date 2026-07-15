@@ -9,7 +9,7 @@ import MySelect from '../UI/MySelect/MySelect';
 import { registerUser } from '@/store/thunks/authThunks';
 import { updateUserThunk } from '@/store/thunks/usersThunks';
 import { useDispatch } from 'react-redux';
-import { ROLE_SELECT_OPTIONS } from '@/config/roles.config';
+import { ROLE_SELECT_OPTIONS } from '@/config/select.config';
 
 export default function AddUser({ open, onClose, editableUser }) {
   const t = useTranslations('users');

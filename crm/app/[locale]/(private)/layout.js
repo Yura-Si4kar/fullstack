@@ -7,7 +7,7 @@ import { selectIsLoading, selectUser } from '@/store/selectors/selectors';
 import Loading from '@/components/Loading';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { heartbeat } from '@/http/users';
+// import { heartbeat } from '@/http/users';
 import { fetchMe } from '@/store/thunks/authThunks';
 
 export default function PrivateLayout({ children }) {
@@ -23,15 +23,15 @@ export default function PrivateLayout({ children }) {
   }, []);
 
   // 🔥 2. Запускаємо heartbeat коли юзер вже отриманий
-  useEffect(() => {
-    if (!user?._id) return;
+  // useEffect(() => {
+  //   if (!user?._id) return;
 
-    heartbeat(user._id);
+  //   heartbeat(user._id);
 
-    const interval = setInterval(() => heartbeat(user._id), 60000);
+  //   const interval = setInterval(() => heartbeat(user._id), 60000);
 
-    return () => clearInterval(interval);
-  }, [user?._id]);
+  //   return () => clearInterval(interval);
+  // }, [user?._id]);
 
   return (
     <>

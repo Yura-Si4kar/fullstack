@@ -1,0 +1,153 @@
+/* Додаткові допоміжні змінні (не змінюють ваші) */
+:root {
+  --modal-backdrop: rgba(15, 23, 42, 0.5);
+  --input-focus-shadow: rgba(99, 102, 241, 0.2);
+}
+
+/* Загальний контейнер для всіх модалок (addUser, addRole, addClient) */
+.add-user, .add-role, .add-client {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--modal-backdrop);
+  backdrop-filter: blur(8px); /* Трохи більше розмиття для сучасності */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  z-index: 1000;
+}
+
+.add-user.open, .add-role.open, .add-client.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Уніфіковане вікно попапу */
+.add-user-popup, .add-role-popup, .add-client-popup {
+  width: 100%;
+  max-width: 450px;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  transform: scale(0.95) translateY(10px);
+  transition: all var(--transition-base);
+}
+
+.open .add-user-popup, 
+.open .add-role-popup, 
+.open .add-client-popup {
+  transform: scale(1) translateY(0);
+}
+
+/* Header */
+.add-user-popup-header, .add-role-popup-header, .add-client-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-user-popup-header h2, 
+.add-role-popup-header h2, 
+.add-client-popup-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Кнопка закриття (X) */
+.add-user-popup-close, .add-role-popup-close, .add-client-popup-header button {
+  background: var(--bg-secondary) !important;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary) !important;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 20px;
+}
+
+.add-user-popup-close:hover {
+  background: var(--color-danger) !important;
+  color: white !important;
+}
+
+/* Form & Inputs */
+.add-user-form, .add-client-popup form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Стилізація текстового поля нотаток (textarea) */
+textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--input-focus-shadow);
+}
+
+/* Actions / Buttons */
+.add-user-form-actions, .add-role-popup-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Якщо MyButton не має стилів, додамо базові сучасні */
+.add-user-form-actions button, .btn-primary {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.btn-primary, button[type="submit"] {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Error Message */
+.error {
+  color: var(--color-danger);
+  font-size: 0.85rem;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-danger);
+}

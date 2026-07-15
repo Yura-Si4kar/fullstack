@@ -5,4 +5,5 @@ export const initialState = {
     user: null,
     usersList: [],
     rolesList: [],
+    clientsList: [],
 };

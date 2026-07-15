@@ -43,7 +43,7 @@ export default function page() {
 
           <div className="task task--completed">
             <div className="task__left">
-              <input type="checkbox" checked />
+              <input type="checkbox" defaultChecked />
               <div className="task__content">
                 <h4>Fix CRM bugs</h4>
                 <p>Assigned to: You</p>

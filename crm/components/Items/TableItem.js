@@ -3,6 +3,7 @@ import MyButton from '../UI/MyButton/MyButton';
 import UsersActions from '../Popup/UsersActions';
 import { deleteUser } from '@/store/thunks/usersThunks';
 import { useDispatch } from 'react-redux';
+import { getInitials } from '@/utils/getInitials';
 
 export default function TableItem({ user, onEdit }) {
     const [open, setOpen] = useState(false);
@@ -26,7 +27,9 @@ export default function TableItem({ user, onEdit }) {
 
     return (
         <tr className="users__table-row">
-            <td>{user.name}</td>
+            <td style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
+                <span className="clients__avatar">{getInitials(user.name)}</span> {user.name}
+            </td>
             <td>{user.email}</td>
             <td>{user.role}</td>
             <td>{user.online ? <span>🟢 Online</span> : <span>🔴 Offline</span>}</td>

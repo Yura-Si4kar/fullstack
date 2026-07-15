@@ -5,3 +5,9 @@ export const ROLE_SELECT_OPTIONS  = [
     { value: 'support', label: 'users.modal.roles.support' },
     { value: 'client', label: 'users.modal.roles.client' },
 ];
+
+export const STATUS_SELECT_OPTIONS = [
+    { value: 'active', label: 'client.modal.status.active' }, 
+    { value: 'inactive', label: 'client.modal.status.inactive' },
+    { value: 'pending', label: 'client.modal.status.pending' },
+];

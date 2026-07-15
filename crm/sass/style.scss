@@ -21,8 +21,9 @@
 @use 'components/loading' as *;
 // Popup
 @use 'popup/add-user' as *;
-@use 'popup/users-actions' as *;
 @use 'popup/add-role' as *;
+@use 'popup/add-client' as *;
+@use 'popup/users-actions' as *;
 @use 'popup/support' as *;
 // UI
 @use 'ui/dark-mode-btn' as *;

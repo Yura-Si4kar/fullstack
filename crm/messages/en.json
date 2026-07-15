@@ -139,5 +139,47 @@
       "edit": "Edit",
       "delete": "Delete"
     }
+  },
+  "client": {
+    "title": "Clients",
+    "subtitle": "Manage your clients and their activity",
+    "search": {
+      "placeholder": "search clients...",
+      "button": "Add client"
+    },
+    "table": {
+      "header": {
+        "name": "Client",
+        "email": "Email",
+        "status": "Status",
+        "owner": "Owner",
+        "activity": "Last active"
+      }
+    },
+    "modal": {
+      "title": "Add New Client",
+      "placeholders": {
+        "name": "Client name",
+        "email": "Email address",
+        "phone": "Phone number",
+        "status": "Status",
+        "created": "Who created",
+        "owner": "Account owner",
+        "label": "Avatar Image",
+        "notes": "Additional notes or requirements..."
+      },
+      "actions": {
+        "save": "Save Client",
+        "cancel": "Cancel"
+      },
+      "labels": {
+        "status": "Status"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "pending": "Pending"
+      }
+    }
   }
 }

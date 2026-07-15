@@ -4,3 +4,4 @@ export const selectIsLoading = (state) => state.authorization.loading;
 export const selectIsError = (state) => state.authorization.error;
 export const selectUser = (state) => state.authorization.user;
 export const selectRolesList = (state) => state.roles.rolesList;
+export const selectClientsList = (state) => state.clients.clientsList;
